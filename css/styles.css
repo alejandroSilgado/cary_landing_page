@@ -6,6 +6,11 @@
     --border-radius-hover:4% 95% 6% 95%/95% 4% 92% 5%;
     --border:.2rem solid var(--main-color);
     --border-hover:.2rem dashed var(--main-color);
+    /* header colors & borders */
+    --color-header: #8045c6;
+    --color-header-text: white;
+    --border-header:.2rem solid var(--color-header-text);
+
 }
 
 *{
@@ -33,7 +38,18 @@ section{
     font-size: 9rem;
     text-transform: uppercase;
     color:transparent;
-    -webkit-text-stroke: .05rem var(--main-color);
+    -webkit-text-stroke: .1rem var(--color-header);
+    letter-spacing: .2rem;
+    text-align: center;
+    pointer-events: none;
+    position: relative;
+}
+.heading1{
+    margin-top: .3rem;
+    font-size: 9rem;
+    text-transform: uppercase;
+    color:transparent;
+    -webkit-text-stroke: .1rem var(--color-header-text);
     letter-spacing: .2rem;
     text-align: center;
     pointer-events: none;
@@ -45,23 +61,23 @@ section{
     top:50%; left:50%;
     transform: translate(-50%, -50%);
     width: 100%;
-    color:var(--main-color);
+    color:var(--color-header);
     font-size: 3rem;
 }
 
-.btn{
+.btn_header{
     display: inline-block;
     padding:.9rem 1.5rem;
     border-radius: var(--border-radius);
-    color:var(--main-color);
+    color:var(--color-header-text);
     background: none;
-    border:var(--border);
+    border:var(--border-header);
     cursor: pointer;
     margin-top: 1rem;
     font-size: 1.7rem;
 }
 
-.btn:hover{
+.btn_header:hover{
     border-radius: var(--border-radius-hover);
     border:var(--border-hover);
 }
@@ -73,14 +89,13 @@ section{
     align-items: center;
     justify-content: space-between;
     z-index: 1000;
-    background:#fff;
-    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+    background:var(--color-header);
     padding:2rem 9%;
 }
 
 .header .logo{
-    color:var(--main-color);
-    font-size: 2.3rem;
+    color:var(--color-header-text);
+    font-size: 1.5rem;
 }
 
 .header .logo i{
@@ -90,12 +105,12 @@ section{
 .header .navbar a{
     margin:0 1rem;
     font-size: 1.7rem;
-    color:var(--main-color);
-    transition: border 0.3s ease;
+    color:var(--color-header-text);
+    transition: border 0.1s ease;
     position: relative;
 }
 .header .navbar a:hover{
-    border-bottom: 2px solid var(--main-color); 
+    border-bottom: 2px solid var(--color-header-text); 
 
 }d
 
@@ -110,12 +125,17 @@ section{
     display: none;
 }
 
-.home{
+.home {
     min-height: 100vh;
     padding-top: 12rem;
-    background: url(../image/home-bg.jpg) no-repeat;
-    background-position: center;
-    background-size: cover;
+    /* background: url(../image/background-home.png) no-repeat center/cover; */
+}
+
+.home #bg-home img{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .home .row{
@@ -126,6 +146,7 @@ section{
 }
 
 .home .row .content{
+    z-index: 1;
     flex:1 1 42rem;
 }
 
@@ -136,8 +157,8 @@ section{
 }
 
 .home .row .image img{
-    height:35rem;
-    animation: float 4s linear infinite;
+    height:45rem;
+    animation: float 6s linear infinite;
 }
 
 @keyframes float{
@@ -145,14 +166,15 @@ section{
         transform: translateY(0rem);
     }
     50%{
-        transform: translateY(-7rem);
+        transform: translateY(-3rem);
     }
 }
 
 .home .row .content h3{
     font-size: 6.5rem;
-    color:var(--main-color);
+    color:var(--color-header-text);
     text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .home .image-slider{
@@ -183,20 +205,11 @@ section{
 }
 
 .about .row .image img{
-    width: 100%;
-    animation:aboutImage 4s linear infinite;
+    width: 80%;
+    height: 80vh;
 }
 
-@keyframes aboutImage {
-    0%, 100%{
-        transform: scale(.9);
-        border-radius: var(--border-radius-hover);
-    }
-    50%{
-        transform: scale(.8);
-        border-radius: var(--border-radius);
-    }
-}
+
 
 .about .row .content{
     flex:1 1 42rem;
@@ -240,12 +253,37 @@ section{
     color:var(--main-color);
 }
 
-.menu{
-    background: url(../image/menu-bg.jpg) no-repeat;
-    background-position: center;
-    background-size: cover;
+.menu #bg-menu img{
+    z-index: -1;
+    width: 100%;
+    position: absolute;
+    left: 0;
+}
+.menu .descarganos{
+    height: 500px;
+    width: 100%;
+    display: grid;
+    align-content: center;
+}
+.menu .descarganos h3{
+    font-size: 6.5rem;
+    color:var(--color-header-text);
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.menu .servicios{
+    height: 420px;
+    width: 100%;
+    display: grid;
+    align-content: center;
 }
 
+.menu .servicios h3{
+    font-size: 6.5rem;
+    color:var(--color-header-text);
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
 .menu .box-container{
     display: flex;
     flex-wrap: wrap;
